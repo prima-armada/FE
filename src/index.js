@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 import Login from './pages/login/login';
 import Dashboard from './pages/dashboard/dashboard';
+import Detail from './pages/detail/detail';
+import Department from './pages/department/department';
+import Pengajuan from './pages/pengajuan/detail';
 
 
 const router = createBrowserRouter([
@@ -18,12 +21,23 @@ const router = createBrowserRouter([
     path: "/",
     element: <Login/> ,
   },
- 
   {
     path: "/dashboard",
     element: <Dashboard/> ,
   },
+  {
+    path: "/detail",
+    element: <Detail/> ,
+  },
+  {
+    path: "/department",
+    element: <Department/> ,
+  },
   
+  {
+    path: "/pengajuan",
+    element: <Pengajuan/> ,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -84,13 +84,11 @@ function ContentRegis() {
             className="regist-input"
             onChange={handleInputChange}
           />
-           <input
-            type="text"
-            name="roles"
-            placeholder="Your Role"
-            className="regist-input"
-            onChange={handleInputChange}
-          />
+           <select name='roles' onChange={handleInputChange}>
+           <option value=''>Your Roles</option>
+            <option value="manager">manager</option>
+            <option value="admin">admin</option>
+            </select>
           <button className={formValues.roles == "" ||formValues.nip == ""  ||formValues.password==""||
           formValues.username == "" ||formValues.nama ==""? "btn-register-disabled": "btn-register"}>
             Register
