@@ -4,7 +4,7 @@ import Logos from '../../../assets/image/imgregis/par.PNG';
 import Logo2 from '../../../assets/image/imgregis/logo-prima.png';
 function ContentLogin() {
 
-    return (
+  return (
       
 <>
 <div id='container-login'>

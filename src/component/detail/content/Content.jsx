@@ -14,11 +14,36 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
-// import Table from 'react-bootstrap/Table'
-// import 'bootstrap/dist/css/bootstrap.css';
+import Modal from 'react-modal';
+
 
 function ContentDetail() {
+  const [modalIsOpen, setIsOpen] = useState(false);
 
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      width :'40%',
+      height: '100%',
+      background:' linear-gradient(360deg, rgba(253, 253, 253,0) 47%, rgba(18, 1, 255,1) 120%)',
+      transform: 'translate(-50%, -50%)',
+    
+    },
+  };
+  let subtitle;
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+
+  function closeModal() {
+    setIsOpen(false);
+  }
     return (
       
 <>
@@ -40,7 +65,7 @@ function ContentDetail() {
    
     <div className='container-detail'>
       <div className='content-head'>
-      <Button className='btn-add' variant="contained" endIcon={<SendIcon />}>
+      <Button onClick={openModal} className='btn-add' variant="contained" endIcon={<SendIcon />}>
         Add
       </Button>
       <input  type="text" placeholder="Search.." name="search" />
@@ -112,38 +137,65 @@ function ContentDetail() {
         </div>
     </div>
  
- {/* <Table stripped bordered hover size="sm">
-   <thead>
-     <tr>
-       <th>Nama</th>
-       <th>Role</th>
-       <th >Progress</th>
-       <th >Status</th>
-       <th >Documentasi</th>
-  
-     </tr>
-   </thead>
-   <tbody>
-     <tr>
-       <td>Rakesh</td>
-       <td>1123</td>
-       <td>CSE</td>
-       <td>Mumbai</td>
-       <td>86.9%</td>
-  
-     </tr>
-     <tr>
-       <td>Jackson</td>
-       <td>1124</td>
-       <td>ECE</td>
-       <td>Hyderabad</td>
-       <td>72.4%</td>
-  
-     </tr>
-     
-  
-   </tbody>
- </Table> */}
+    <Modal
+          isOpen={modalIsOpen}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          
+         
+          <form className='form-kandidat'>
+         
+         <input
+            type="text"
+            name="jumlah"
+            placeholder="Nama Kandidat"
+            className="input-kandidat"
+            // onChange={handleInputChange}
+          />
+
+           <input
+            type="text"
+            name="posisi"
+            placeholder="position"
+            className="input-kandidat"
+            // onChange={handleInputChange}
+          />
+         <input
+            type="file"
+            id="detail-file"
+            name="file"
+          />
+          <select name='progress' >
+            <option value=''>Your progress</option>
+            <option value="hc">interview hc</option>
+            <option value="hc">interview user</option>
+            <option value="approved">approved</option>
+          </select>
+
+          <select name='proses' >
+            <option value=''>status proses</option>
+            <option value="hc">Proses</option>
+            <option value="hc">pending</option>
+            <option value="approved">failed</option>
+            <option value="approved">passed</option>
+          </select>
+        
+
+              <button className="modal-cancel" onClick={() => closeModal()}>
+                Cancel
+              </button>
+              <button
+                type="submit"
+                // onClick={(e) => addData(e)}
+                form="form"
+                className="modal-submit"
+              >
+                Submit
+              </button>
+         </form>
+          
+    </Modal>
 </div>
    
 </>
