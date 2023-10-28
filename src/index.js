@@ -10,6 +10,11 @@ import Dashboard from './pages/dashboard/dashboard';
 import Detail from './pages/detail/detail';
 import Department from './pages/department/department';
 import Pengajuan from './pages/pengajuan/detail';
+import Kandidat from './pages/kandidat/kandidat';
+import Lupapassword from './pages/lupapassword/lupapassword';
+import SoalInterview from './pages/soal/soal';
+import Interview from './pages/interview/interview';
+import InterviewKandidat from './pages/interviewkandidat/interviewkandidat';
 
 
 const router = createBrowserRouter([
@@ -37,6 +42,26 @@ const router = createBrowserRouter([
   {
     path: "/pengajuan",
     element: <Pengajuan/> ,
+  },
+  {
+    path: "/kandidat",
+    element: <Kandidat/> ,
+  },
+  {
+    path: "/forget",
+    element: <Lupapassword/> ,
+  },
+  {
+    path: "/soalinterview",
+    element: <SoalInterview/> ,
+  },
+  {
+    path: "/interview",
+    element: <Interview/> ,
+  },
+  {
+    path: "/interviewkandidat",
+    element: <InterviewKandidat/> ,
   },
 ]);
 

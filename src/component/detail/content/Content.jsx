@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import '../../../assets/css/project.css';
-import Logo2 from '../../../assets/image/imgregis/logo-prima.png';
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import '@coreui/coreui/dist/css/coreui.min.css'
-import {  Link } from "react-router-dom";
-import BookmarksIcon from '@mui/icons-material/Bookmarks';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
-import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import Modal from 'react-modal';
 
 
@@ -22,7 +15,7 @@ function ContentDetail() {
 
   const customStyles = {
     content: {
-      top: '50%',
+      top: '20%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
@@ -47,90 +40,86 @@ function ContentDetail() {
     return (
       
 <>
-<div style={{ display: "flex", height: "100vh", flex: "wrap", justifyContent: "space-between"}}>
-      <Sidebar className="sidebar">
-        <Menu>
-          <MenuItem  component={<Link to="/dashboard" className="link" />} className="menu1">
-          <img className='logo-sidebar' src={Logo2}alt="logo" />
-          </MenuItem>
-          <MenuItem icon=  {<DashboardIcon  />} component={<Link to="/dashboard" className="link" />} >Dashboard</MenuItem>
-          <MenuItem icon={<ManageHistoryIcon />} component={<Link to="/detail" className="link" />}> Detail Proses </MenuItem>
-          <MenuItem icon={<BookmarksIcon />} component={<Link to="/pengajuan" className="link" />}> Pengajuan </MenuItem>
-          <MenuItem icon={<AssignmentIndIcon />}> Profile </MenuItem>
-          <MenuItem icon={<LocalFireDepartmentIcon/>} component={<Link to="/department" className="link" />}> Detail Department</MenuItem>
-          <MenuItem icon={<ExitToAppIcon />}> Logout </MenuItem>
-        </Menu>
-      </Sidebar>
+
    
    
     <div className='container-detail'>
-      <div className='content-head'>
+      <div className='head-detail'>
       <Button onClick={openModal} className='btn-add' variant="contained" endIcon={<SendIcon />}>
         Add
       </Button>
       <input  type="text" placeholder="Search.." name="search" />
       </div>
-      <div className='content-detail'>
+      <div className='detail-content'>
       <table>
-            <thead className="dashboard-list-table-header">
+            <thead className="detail-list-table-header">
               <tr>
-                <th >Nama</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th >Nama Kandidat</th>
+                <th>Nama Refrence</th>
+                <th>Nip Refrence</th>
+                <th>Department Refrence</th>
+                <th>Department kebutuhan</th>
+                <th>nama manager</th>
+                <th>Posisi Dilamar</th>
+                <th>Nilai  User</th>
+                <th>Nilai HR</th>
+                <th>Total Nilai </th>
+                <th>Status Kandidat</th>
                 <th>Progress</th>
-                <th>Doc</th>
+                <th>Documentasi Kandidat</th>
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody className="dashboard-list-table-body">
+            <tbody className="detail-list-table-body">
               
                     <tr>
                       <td>fajar</td>
-                      <td>manager</td>
+                      <td>budi</td>
+                      <td>32343443</td>
+                      <td>haas</td>
+                      <td>hc</td>
+                      <td>adam</td>
+                      <td>It Support</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>2</td>
                       <td>proses</td>
                       <td>interview user</td>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
+                      <td ></td>
+                      <td ></td>
                     </tr>
                 
                     <tr>
+                      <td>fajar</td>
                       <td>budi</td>
-                      <td>manager</td>
+                      <td>32343443</td>
+                      <td>haas</td>
+                      <td>hc</td>
+                      <td>adam</td>
+                      <td>It Support</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>2</td>
                       <td>proses</td>
                       <td>interview user</td>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
+                      <td ></td>
+                      <td ></td>
                     </tr>
                     <tr>
+                      <td>fajar</td>
                       <td>budi</td>
-                      <td>manager</td>
+                      <td>32343443</td>
+                      <td>haas</td>
+                      <td>hc</td>
+                      <td>adam</td>
+                      <td>It Support</td>
+                      <td>2</td>
+                      <td>2</td>
+                      <td>2</td>
                       <td>proses</td>
                       <td>interview user</td>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                    </tr>
-                    <tr>
-                      <td>budi</td>
-                      <td>manager</td>
-                      <td>proses</td>
-                      <td>interview user</td>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
+                      <td ></td>
+                      <td ></td>
                     </tr>
             </tbody>
           </table>
@@ -196,7 +185,7 @@ function ContentDetail() {
          </form>
           
     </Modal>
-</div>
+
    
 </>
     );
