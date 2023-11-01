@@ -288,6 +288,9 @@
   width: 120px;
   display: flex; 
 }
+.menus-disabled{
+  display: none;
+}
 .menu2{
   display: flex;
   height: 100%;
@@ -453,19 +456,36 @@
 }
 
 .dashboard-list-table-header{
-  padding: 20px 20px;
+
   background: #000;
   color: #fff;
  
 }
+.dashboard-list-table-header th{
+  padding:5px 10px;
+  font-size: 15px;
+  word-spacing:5px; 
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
 
+}
 .dashboard-list-table-body{
-  padding: 20px 20px;
+ 
   border-bottom: 1px solid #e0e0e0;
   background: white;
   color: #0a0a0a;
  
 }
+
+.dashboard-list-table-body td{
+  padding:10px 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  word-spacing:5px; 
+  font-weight: bold;
+}
+
+
 /* detail proses */
 .container-detail{
   height: 800px;
@@ -590,7 +610,7 @@
 .content-kandidat{
   height:89%;
   width: 100%;
-  padding:30px 80px;
+  padding:30px 90px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -628,11 +648,14 @@
 }
 .submit-kandidat{
   height: 50px;
-  width: 200px;
+  width: 400px;
+  align-items: center ;
+  font-family: 'Times New Roman', Times, serif;
+  word-spacing:5px; 
+  font-weight: bold;
+  margin: 0 20em;
 }
-#detail-kandidat::before{
-  content: 'Cv Kandidat';
-}
+
 /* #detail-kandidat::-webkit-file-upload-button{
   visibility: hidden;
 } */

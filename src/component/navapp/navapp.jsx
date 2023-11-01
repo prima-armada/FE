@@ -11,7 +11,12 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import InterpreterModeIcon from '@mui/icons-material/InterpreterMode';
 function NavsApp() {
+    // const username = localStorage.getItem("username")
+    // const role  = localStorage.getItem("role")
+    const parsing= JSON.parse(localStorage.getItem("user"))
 
+    console.log("parsing data", parsing.role)
+    
       return (
       
       <>
@@ -56,7 +61,8 @@ function NavsApp() {
                <div className="nav-bot">
                <ul className="ul-bot">
                <li>
-                    <Menu className="menus">
+             
+                    <Menu   className={parsing.role === "admin" ?"menus":"menus-disabled" } >
                     <MenuItem className="menu2" icon={<LocalFireDepartmentIcon   />}component={<Link to="/department" className="link" />}>  Department</MenuItem>
                     </Menu>
                     
@@ -69,14 +75,14 @@ function NavsApp() {
                     </li>
                   
                     <li>
-                    <Menu className="menus">
+                    <Menu className={parsing.role === "admin" ?"menus":"menus-disabled" }>
                     <MenuItem className="menu2" icon={<AssignmentIcon />} component={<Link to="/kandidat" className="link" />}> Formulir Kandidat 
                     </MenuItem>
                     </Menu>
                     
                     </li>
                     <li>
-                    <Menu className="menus">
+                    <Menu  className={parsing.role === "admin" ?"menus":"menus-disabled" } >
                     <MenuItem className="menu2" icon={<ReceiptLongIcon />} component={<Link to="/soalinterview" className="link" />}>Soal
                     </MenuItem>
                     </Menu>

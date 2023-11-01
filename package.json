@@ -16,10 +16,14 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
+    "caniuse-lite": "^1.0.30001397",
     "env-cmd": "^10.1.0",
     "framer-motion": "^10.16.4",
     "glamor": "^2.20.40",
+    "js-cookie": "^3.0.5",
     "localforage": "^1.10.0",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.0",
     "react-datepicker": "^4.20.0",
@@ -57,6 +61,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-    
+  },
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.3.3",
+    "webpack": "^5.89.0"
   }
 }
