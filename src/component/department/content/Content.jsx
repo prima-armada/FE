@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { React,useState,useContext } from 'react';
 import '../../../assets/css/project.css';
 import '@coreui/coreui/dist/css/coreui.min.css'
 import { CImage ,CCarouselItem,CCarousel} from '@coreui/react'
@@ -6,10 +6,16 @@ import Logo2 from '../../../assets/image/imgregis/logo-prima.png';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import Modal from 'react-modal';
+import { Context } from '../../context/Contextprovid';
 
 function ContentDepartment() {
+  const{data} = useContext(Context)
+  console.log("data department",data)
+
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const customStyles = {
@@ -27,7 +33,12 @@ function ContentDepartment() {
     },
   };
   let subtitle;
-
+  // function EditModal(){
+  //   setIsOpen(true)
+  // }
+  // function CloseModal(){
+  //   setIsOpen(false)
+  // }
   function openModal() {
     setIsOpen(true);
   }
@@ -62,8 +73,12 @@ function ContentDepartment() {
             </Button>
             <input  type="text" placeholder="Search.." name="search" />
           </div>
+         
+        
         <div className='content-department'>
+   
           <table>
+            
               <thead className="dashboard-list-table-header">
                 <tr>
                 <th>Nama Deparment</th>
@@ -71,79 +86,32 @@ function ContentDepartment() {
                 </tr>
               </thead>
             <tbody className="dashboard-list-table-body">
-              
+            {data?.map((item) => {
+              return (
                     <tr>
-                      <td>Human Capital</td>
+                      <td>{item.nama_departments}</td>
                      
                       <IconButton aria-label="delete" size="small">
                       <DeleteIcon fontSize="inherit" />
                       </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
+                      <IconButton onclic aria-label="delete" size="small">
+                      <EditIcon fontSize="inherit" />
                       </IconButton>
                     </tr>
                 
-                    <tr>
-                      <td>HAAS</td>
-                      
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                    </tr>
+                );    
+                })} 
               </tbody>
+          
            </table>
+         
         </div>
+  
         </div>
       </div>
    
    
-    {/* <div className='container-detail'>
-      <div className='content-head'>
-      <Button className='btn-add' onClick={openModal} variant="contained" endIcon={<SendIcon />}>
-        Add
-      </Button>
-      <input  type="text" placeholder="Search.." name="search" />
-      </div>
-      <div className='content-detail'>
-      <table>
-            <thead className="dashboard-list-table-header">
-              <tr>
-                <th>Nama Deparment</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody className="dashboard-list-table-body">
-              
-                    <tr>
-                      <td>Human Capital</td>
-                     
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                    </tr>
-                
-                    <tr>
-                      <td>HAAS</td>
-                      
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                      <IconButton aria-label="delete" size="small">
-                      <DeleteIcon fontSize="inherit" />
-                      </IconButton>
-                    </tr>
-            </tbody>
-          </table>
-        </div>
-    </div>
- */}
-
+    
 
     <Modal
           isOpen={modalIsOpen}

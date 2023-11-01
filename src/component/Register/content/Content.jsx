@@ -7,6 +7,14 @@ import axios from "axios";
 import {ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+function isNumber(str) {
+  if (str.trim() === '') {
+    return false;
+  }
+
+  return !isNaN(str);
+}
+
 function ContentRegis() {
   const [show, setShow] = useState(false);
 
@@ -49,11 +57,11 @@ const handleSubmit = async (e)  => {
       roles:roles.value,
       bagian: bagian.value,
     };
-    const apiUrl = process.env.REACT_APP_API_BASE_URL;
+    const apiUrl = process.env.REACT_REGISTER_API_BASE_URL;
 
     
      await axios.post(apiUrl, datapost).then((response) => {
-      
+      // console.log("ini respon",response.data.status)
     if(response.data.status ==="Created"){
       toast.success('Register Success', {
         position: "top-right",
@@ -73,8 +81,9 @@ const handleSubmit = async (e)  => {
         roles.value = ""
         bagian.value = ""
         nama.value = ""
+      
     } 
-  
+    
     }).catch(error=>{
       console.log("ini error",error.response.data.data)
       if(
@@ -84,7 +93,7 @@ const handleSubmit = async (e)  => {
       )
       {
  
-        toast.error('Register fail, Harap Isi Kolom Yang Kosong', {
+      toast.error('Register fail, Harap Isi Kolom Yang Kosong', {
           position: "top-right",
           autoClose:1000,
           hideProgressBar: false,
@@ -94,8 +103,8 @@ const handleSubmit = async (e)  => {
           progress: undefined,
           theme: "dark",
           })
-      }
-      if (Object.keys(datapost.nama).length<5||Object.keys(datapost.password).length<5||
+       
+      }else if (Object.keys(datapost.nama).length<5||Object.keys(datapost.password).length<5||
       Object.keys(datapost.roles).length<5||Object.keys(datapost.bagian).length<5
       ||Object.keys(datapost.username).length<5||Object.keys(datapost.nip).length<5){
 
@@ -109,11 +118,49 @@ const handleSubmit = async (e)  => {
           progress: undefined,
           theme: "dark",
           })
+      }else if(Object.keys(datapost.nama).length>15||Object.keys(datapost.password).length>15||
+      Object.keys(datapost.roles).length>15||Object.keys(datapost.bagian).length>15
+      ||Object.keys(datapost.username).length>15||Object.keys(datapost.nip).length>15){
+
+        toast.warning('Register fail, Harap input maksimal 15 karakter', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          })
       }
+      // else if ((error.response.data.data = "input Harus angka !!!")||(error.response.data.data = "input harus huruf")){
+      //   toast.warning('Register fail, cek field nip atau field bagian input harus angka atau huruf', {
+      //     position: "top-right",
+      //     autoClose: 5000,
+      //     hideProgressBar: false,
+      //     closeOnClick: true,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //     theme: "dark",
+      //     })
+        else{
+          toast.error('Register fail, anda sudah terdaftar', {
+            position: "top-right",
+            autoClose:3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
+        }
+      
   }
 );
       
-       
+
         
 };
   return (
@@ -130,6 +177,7 @@ const handleSubmit = async (e)  => {
         <input
             type="text"
             name="nip"
+            pattern="[0-9]*"
             placeholder="Your NIP"
             className="regist-input"
             onChange={handleInputChange}
@@ -138,6 +186,7 @@ const handleSubmit = async (e)  => {
            <input
             type="text"
             name="bagian"
+            pattern="[a-z]*"
             placeholder="Your bagian"
             className="regist-input"
             onChange={handleInputChange}
