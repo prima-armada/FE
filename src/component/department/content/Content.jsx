@@ -13,7 +13,7 @@ import { Context } from '../../context/Contextprovid';
 
 function ContentDepartment() {
   const{data} = useContext(Context)
-  console.log("data department",data)
+
 
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -33,12 +33,7 @@ function ContentDepartment() {
     },
   };
   let subtitle;
-  // function EditModal(){
-  //   setIsOpen(true)
-  // }
-  // function CloseModal(){
-  //   setIsOpen(false)
-  // }
+  
   function openModal() {
     setIsOpen(true);
   }
@@ -89,7 +84,7 @@ function ContentDepartment() {
             {data?.map((item) => {
               return (
                     <tr>
-                      <td>{item.nama_departments}</td>
+                      <td key={item.id_departments}>{item.nama_departments}</td>
                      
                       <IconButton aria-label="delete" size="small">
                       <DeleteIcon fontSize="inherit" />

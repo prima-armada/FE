@@ -14,7 +14,7 @@ const DepartProvider = ({children}) => {
     const GetDepartment = async() => {
     const parsing= JSON.parse(localStorage.getItem("user"))
 
-    console.log("get token bos",parsing.token)
+  
 
        axios.request({
             headers: {
@@ -31,7 +31,7 @@ const DepartProvider = ({children}) => {
       useEffect(() => {
        GetDepartment();
       }, []);
-    //   console.log("ini data",data);
+
     return(
         <Context.Provider value ={{data}}>
              {children} 

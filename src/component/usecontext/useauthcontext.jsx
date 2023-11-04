@@ -4,7 +4,7 @@ import { ContextAuth } from "../context/authcontext"
 export const useAuthContext=()=>{
     const context = useContext(ContextAuth)
 
-    console.log("ini usecontext", context)
+  
   
 
     if (!context){

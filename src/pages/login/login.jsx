@@ -6,9 +6,9 @@ import { AuthContextProvider } from '../../component/context/authcontext';
 function Login() {
     return (
       <div >
-        <AuthContextProvider>
+        {/* <AuthContextProvider> */}
         <ContentLogin/>
-        </AuthContextProvider>
+
        
       </div>
       

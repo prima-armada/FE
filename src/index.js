@@ -16,7 +16,7 @@ import SoalInterview from './pages/soal/soal';
 import Interview from './pages/interview/interview';
 import InterviewKandidat from './pages/interviewkandidat/interviewkandidat';
 
-
+import { AuthContextProvider } from '../src/component/context/authcontext';
 const router = createBrowserRouter([
   {
     path: "/register",
@@ -67,7 +67,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <AuthContextProvider>
+      <RouterProvider router={router} />
+      </AuthContextProvider>
+  
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
