@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import '../../../assets/css/project.css';
 import {ToastContainer } from "react-toastify";
 import Logo2 from '../../../assets/image/imgregis/logo-prima.png';
-import { UseLogin } from '../../hook/customhook';
+import { UseLogin } from '../../customhook/uselogin';
+
 function ContentLogin() {
   const [formValues, setFormValues] = useState({
     nip: '',

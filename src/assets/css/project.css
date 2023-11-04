@@ -227,10 +227,11 @@
   justify-content: space-between;
   padding: 0 40px;
   box-sizing: border-box;
+ 
 }
 
 .ul-top{
-  height: 55%;
+  height: 75%;
   width: 100%;
   list-style: none;
   font-size: 12px;
@@ -241,6 +242,7 @@
   font-weight: bold;
   flex-wrap: wrap;
   margin: 1em 1em 1em 1em;
+
 }
 
 .menu{
@@ -316,7 +318,13 @@
   text-decoration: none; 
   color: black;
  }
+ .btn-out{
+  padding: 20px;
+  height: 24px;
+  width: 120px;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0.6) 49%, rgba(5, 1, 255,1) 120%);
 
+}
 
 /* dashboard content */
 .container-dashboard{

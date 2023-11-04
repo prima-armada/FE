@@ -60,7 +60,7 @@ const handleSubmit = async (e)  => {
     const apiUrl = process.env.REACT_REGISTER_API_BASE_URL;
 
     
-     await axios.post(apiUrl, datapost).then((response) => {
+     await axios.post('http://localhost:8080/user/adduser', datapost).then((response) => {
       // console.log("ini respon",response.data.status)
     if(response.data.status ==="Created"){
       toast.success('Register Success', {

@@ -6,9 +6,12 @@ import {createContext,useReducer } from "react";
 const ContextAuth = createContext()
 
 export const authreducer =(state,action)=>{
+
     switch(action.type){
         case 'Login':
             return {user:action.payload}
+        case 'Logout':
+            return {user:null}    
         default:
             return state
     }
@@ -20,7 +23,7 @@ const AuthContextProvider = ({children}) => {
     })
 
 
-    console.log("autcontext Provider", state)
+
 
 
 

@@ -10,13 +10,17 @@ import Logo2 from '../../assets/image/imgregis/logo-prima.png';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import InterpreterModeIcon from '@mui/icons-material/InterpreterMode';
+
+import Button from '@mui/material/Button';
+import { useLogout } from "../customhook/uselogout";
 function NavsApp() {
-    // const username = localStorage.getItem("username")
-    // const role  = localStorage.getItem("role")
+    const { logout }=useLogout()
     const parsing= JSON.parse(localStorage.getItem("user"))
 
-    console.log("parsing data", parsing.role)
-    
+
+    const handleClick=()=>{
+      logout()
+    }
       return (
       
       <>
@@ -42,19 +46,14 @@ function NavsApp() {
                     <MenuItem className="menu1" icon={<ManageHistoryIcon  />} component={<Link to="/detail" className="link" />}> Detail Proses </MenuItem>
                     </Menu>
                     </li>
-                    <li>
+                    <li >
                     <Menu className="menu" >
                     <MenuItem className="menu1" icon={<BookmarksIcon />} component={<Link to="/pengajuan" className="link" />}> Pengajuan </MenuItem>
                     </Menu>
                     
                     </li>
-                   
-                    <li>
-                    <Menu className="menu">
-                    <MenuItem className="menu1" icon={<ExitToAppIcon />}> Logout </MenuItem>
-                    </Menu>
-                    
-                    </li>
+                     <Button className='btn-out' onClick={handleClick} variant="contained" endIcon={<ExitToAppIcon  />}>Logout</Button>
+                  
               </ul>
             </div>
           
