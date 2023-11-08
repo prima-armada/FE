@@ -1,4 +1,4 @@
-import  { React,useState,useContext } from 'react';
+import  { React,useState,useContext,  useEffect } from 'react';
 import '../../../assets/css/project.css';
 import '@coreui/coreui/dist/css/coreui.min.css'
 import { CImage ,CCarouselItem,CCarousel} from '@coreui/react'
@@ -9,13 +9,18 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import Modal from 'react-modal';
-import { Context } from '../../context/Contextprovid';
-
+import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import { useDepartcontext } from '../../usecontext/usedepart';
+import { useAuthContext } from "../../usecontext/useauthcontext";
+import { toast,ToastContainer } from "react-toastify";
 function ContentDepartment() {
-  const{data} = useContext(Context)
+    
+  const navigate = useNavigate();
+  const {department,dispatch} = useDepartcontext()
 
-
-
+  const {user}= useAuthContext()
+console.log("ini user ", user)
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const customStyles = {
@@ -42,6 +47,67 @@ function ContentDepartment() {
   function closeModal() {
     setIsOpen(false);
   }
+
+ 
+      useEffect(() => {
+        const GetDepartment = async() => {
+          axios.request({
+               headers: {
+                 Authorization: `Bearer ${user.token}`
+               },
+               method: "GET",
+               url: "http://localhost:8080/department"
+             }).then(response => {
+               dispatch({type:'setdepartement', payload:response.data.data})
+            
+             }).catch(err=>{
+              toast.error( "anda bukan admin", {
+                position: "top-right",
+                autoClose:3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",         
+                        
+             })
+             }) 
+               
+         }
+         if (user){
+          if(user.role !== "admin"||user.role===""){
+            toast.error( "anda bukan admin", {
+              position: "top-right",
+              autoClose:3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",         
+                      
+           })
+           navigate("/")
+          }else if(!user){
+            toast.error( "Harap Login Terlebih Dahulu", {
+              position: "top-right",
+              autoClose:3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",         
+                      
+           })
+           navigate("/")
+          }
+          GetDepartment();
+         }
+ 
+      }, [dispatch,user]);
+    
     return (
       
 <>
@@ -60,7 +126,7 @@ function ContentDepartment() {
                  </CCarouselItem>
             </CCarousel>
         </div>
-        
+        <ToastContainer/>
         <div className='container-department'>
           <div className='content-head'>
             <Button className='btn-add' onClick={openModal} variant="contained" endIcon={<SendIcon />}>
@@ -81,7 +147,7 @@ function ContentDepartment() {
                 </tr>
               </thead>
             <tbody className="dashboard-list-table-body">
-            {data?.map((item) => {
+            {department?.map((item) => {
               return (
                     <tr>
                       <td key={item.id_departments}>{item.nama_departments}</td>
