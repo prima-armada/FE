@@ -10,14 +10,15 @@ import Logo2 from '../../assets/image/imgregis/logo-prima.png';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import InterpreterModeIcon from '@mui/icons-material/InterpreterMode';
-
+import {ToastContainer } from "react-toastify";
 import Button from '@mui/material/Button';
 import { useLogout } from "../customhook/uselogout";
+import { useAuthContext } from "../usecontext/useauthcontext";
 function NavsApp() {
     const { logout }=useLogout()
-    const parsing= JSON.parse(localStorage.getItem("user"))
+   
 
-
+    const {user}= useAuthContext()
     const handleClick=()=>{
       logout()
     }
@@ -25,6 +26,7 @@ function NavsApp() {
       
       <>
         <nav className="nav-app">
+        <ToastContainer/> 
             <div className="nav-top">
             <ul className="ul-top">
                     <li >
@@ -56,32 +58,33 @@ function NavsApp() {
                   
               </ul>
             </div>
-          
+            
                <div className="nav-bot">
                <ul className="ul-bot">
+                
                <li>
              
-                    <Menu   className={parsing.role === "admin" ?"menus":"menus-disabled" } >
+                    <Menu   className="menus">
                     <MenuItem className="menu2" icon={<LocalFireDepartmentIcon   />}component={<Link to="/department" className="link" />}>  Department</MenuItem>
                     </Menu>
                     
                     </li>
                     <li>
                     <Menu className="menus">
-                    <MenuItem className="menu2" icon={<AssignmentIndIcon />}>  Profile </MenuItem>
+                    <MenuItem className="menu2" icon={<AssignmentIndIcon />}> {user.username}  </MenuItem>
                     </Menu>
                     
                     </li>
                   
                     <li>
-                    <Menu className={parsing.role === "admin" ?"menus":"menus-disabled" }>
+                    <Menu className={user.role === "admin" ?"menus":"menus-disabled" }>
                     <MenuItem className="menu2" icon={<AssignmentIcon />} component={<Link to="/kandidat" className="link" />}> Formulir Kandidat 
                     </MenuItem>
                     </Menu>
                     
                     </li>
                     <li>
-                    <Menu  className={parsing.role === "admin" ?"menus":"menus-disabled" } >
+                    <Menu  className={user.role === "admin" ?"menus":"menus-disabled" } >
                     <MenuItem className="menu2" icon={<ReceiptLongIcon />} component={<Link to="/soalinterview" className="link" />}>Soal
                     </MenuItem>
                     </Menu>

@@ -133,17 +133,7 @@ const handleSubmit = async (e)  => {
           theme: "dark",
           })
       }
-      // else if ((error.response.data.data = "input Harus angka !!!")||(error.response.data.data = "input harus huruf")){
-      //   toast.warning('Register fail, cek field nip atau field bagian input harus angka atau huruf', {
-      //     position: "top-right",
-      //     autoClose: 5000,
-      //     hideProgressBar: false,
-      //     closeOnClick: true,
-      //     pauseOnHover: true,
-      //     draggable: true,
-      //     progress: undefined,
-      //     theme: "dark",
-      //     })
+  
         else{
           toast.error('Register fail, anda sudah terdaftar', {
             position: "top-right",

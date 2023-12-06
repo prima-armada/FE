@@ -1,5 +1,6 @@
 
-import {createContext,useReducer } from "react";
+import {createContext,useEffect,useReducer } from "react";
+import { json } from "react-router-dom";
 
 
 
@@ -23,9 +24,15 @@ const AuthContextProvider = ({children}) => {
     })
 
 
+    // console.log("ini state", state)
 
+    useEffect(()=>{
+        const user= JSON.parse(localStorage.getItem("user"))
 
-
+        if (user){
+                dispatch({type: 'Login', payload: user})
+        }
+    },[])
 
     return(
         <ContextAuth.Provider value ={{...state,dispatch}}>

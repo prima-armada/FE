@@ -1,44 +1,40 @@
 
-import axios from "axios";
+
 import Cookies from "js-cookie";
-import { useState,createContext,useEffect } from "react";
+import { useState,createContext,useEffect,useReducer } from "react";
 
 
 
-const Context = createContext(null)
+const DepartementContext = createContext(null)
 
-
+const departreduce = (state, action)=>{
+  switch(action.type){
+    case 'setdepartement' : 
+    return{
+      department: action.payload
+    }
+    case 'createdepartement' : 
+    return{
+      department: [action.payload,...state.department]
+    }
+  }
+}
 const DepartProvider = ({children}) => {
+    const[state, dispatch] = useReducer(departreduce,{
+      department: null
+    })
 
-    const [data,SetData] = useState()
-    const GetDepartment = async() => {
-    const parsing= JSON.parse(localStorage.getItem("user"))
-
-  
-
-       axios.request({
-            headers: {
-              Authorization: `Bearer ${parsing.token}`
-            },
-            method: "GET",
-            url: "http://localhost:8080/department"
-          }).then(response => {
-            SetData(response.data.data)
-         
-          }); 
-            
-      }
-      useEffect(() => {
-       GetDepartment();
-      }, []);
-
+      // console.log("departemn contex", state)
+   
     return(
-        <Context.Provider value ={{data}}>
+        <DepartementContext.Provider value ={{...state,dispatch}}>
              {children} 
-        </Context.Provider>
+        </DepartementContext.Provider>
     )
        
     
 }
-export{Context,DepartProvider}
+export{DepartementContext,DepartProvider}
 
+// const [data,SetData] = useState()
+//
