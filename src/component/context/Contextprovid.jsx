@@ -24,7 +24,7 @@ const DepartProvider = ({children}) => {
       department: null
     })
 
-      console.log("departemn contex", state)
+      // console.log("departemn contex", state)
    
     return(
         <DepartementContext.Provider value ={{...state,dispatch}}>

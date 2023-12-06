@@ -529,7 +529,7 @@
  
 }
 .detail-list-table-header th{
-  padding: 4px 5px;
+  padding: 10px 5px;
  
 }
 .detail-list-table-body{
@@ -538,6 +538,12 @@
   background: white;
   color: #0a0a0a;
   text-align: center;
+ 
+}
+.detail-list-table-body td{
+  padding: 10px 5px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12px;
  
 }
 /* Pengajuan */
@@ -570,8 +576,9 @@
   flex-direction: column;
 }
 .pengajuan-list-table-header th{
-  padding: 3px 2px;
- 
+  padding: 4px 1.5px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 11px;
 }
 .pengajuan-list-table-header{
   background: #000;
@@ -581,7 +588,9 @@
 }
 
 .pengajuan-list-table-body td{
-  padding: 2px 0;
+  padding: 2px 1.5px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12px;
  
 }
 .pengajuan-list-table-body{
@@ -638,6 +647,9 @@
   word-spacing:5px; 
   font-weight: bold;
 
+}
+.hidden-field {
+  display: none;
 }
 .textarea{
   height:100px;
@@ -717,6 +729,9 @@
   margin: 1em 0.5em 1em 0em;
   padding: 0 20px;
   box-shadow: 1px 1px 2px 2px rgb(12, 12, 12);
+}
+.input-pengajuan-disabled {
+  display: none;
 }
 .modal-ccl{
   border: none;
@@ -882,7 +897,9 @@
   color: #0a0a0a;
   text-align: center;
 }
-
+.interviewkandidat-list-table-body td{
+  padding:10px 20px;
+}
 .input-interviewkandidat{
   width:300px;
   height: 50px;
@@ -908,7 +925,7 @@
 }
 .submit-interviewkandidat{
   height: 50px;
-  width: 200px;
+  width: 100px;
 }
 
 .toas-success{
@@ -920,4 +937,54 @@
   background-color: red;
   color: white;
   font-weight: 20px;
+}
+
+.head-interviewkandidat select{
+  width:300px;
+  height: 60px;
+  border: none;
+  border-radius: 50px;
+  margin: 1em 1em 1em 1em;  
+  box-shadow: 2px 2px 2px 2px rgb(12, 12, 12);
+}
+/* Modal Styles */
+.Modal-interview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.Modal-interview h2 {
+  margin-bottom: 20px;
+}
+
+.Modal-interview button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; 
+}
+.Modal-interview button:hover {
+  background-color: #4caf50; 
+}
+.Modal-interview button:last-child {
+  margin-right: 0;
+  background-color: #ff5a5a; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.Modal-interview button:last-child:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+.Modal-interview button:last-child::before {
+  content: '✕'; /* Cross icon content */
+  font-size: 18px;
+  margin-right: 5px;
 }

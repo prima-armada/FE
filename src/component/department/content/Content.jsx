@@ -20,7 +20,7 @@ function ContentDepartment() {
   const {department,dispatch} = useDepartcontext()
 
   const {user}= useAuthContext()
-console.log("ini user ", user)
+// console.log("ini user ", user)
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const customStyles = {
@@ -75,38 +75,9 @@ console.log("ini user ", user)
              }) 
                
          }
-         if (user){
-          if(user.role !== "admin"||user.role===""){
-            toast.error( "anda bukan admin", {
-              position: "top-right",
-              autoClose:3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",         
-                      
-           })
-           navigate("/")
-          }else if(!user){
-            toast.error( "Harap Login Terlebih Dahulu", {
-              position: "top-right",
-              autoClose:3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",         
-                      
-           })
-           navigate("/")
-          }
+          
           GetDepartment();
-         }
- 
-      }, [dispatch,user]);
+         }, [dispatch,user]);
     
     return (
       
