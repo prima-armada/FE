@@ -213,7 +213,7 @@ function ContentInterviewKandidat() {
                   Nama Kandidat
                 </option>
                 {allcode?.map((item) => (
-                  <option value={item.nama_kandidat} key={item.nama_kandidat}>
+                  <option value={item.nama_kandidat} >
                     {item.nama_kandidat}
                   </option>
                 ))}
