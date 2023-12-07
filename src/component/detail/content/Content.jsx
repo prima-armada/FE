@@ -10,7 +10,9 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import Modal from 'react-modal';
 import axios from 'axios';
 import {ToastContainer, toast } from "react-toastify";
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import EditIcon from '@mui/icons-material/Edit';
+import DescriptionIcon from '@mui/icons-material/Description';
 function ContentDetail() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [proses, setProses] = useState();
@@ -106,14 +108,29 @@ function ContentDetail() {
                       <td>{item.nilai_direksi}</td>      
                       <td>{item.total_nilai}</td>          
                       <td>{item.status}</td> 
-                      <td>{item.cv}</td>
-{/*                      
-                      <IconButton aria-label="delete" size="small">
+                      <td>
+                       <a href={item.cv} target="_blank" rel="noopener noreferrer">
+                        <DescriptionIcon />
+                       </a>
+                      </td>
+                      <td> 
+                    <td>
+                    <IconButton aria-label="delete" size="small">
                       <DeleteIcon fontSize="inherit" />
-                      </IconButton> */}
-                      {/* <IconButton onclic aria-label="delete" size="small">
+                      </IconButton>
+                    </td>
+                  
+                    <td>
+                      <IconButton  aria-label="edit" size="small">
                       <EditIcon fontSize="inherit" />
-                      </IconButton> */}
+                      </IconButton>
+                    </td>
+                      
+                  </td>
+                 
+                 
+                    
+                     
                     </tr>
                 
                 );    

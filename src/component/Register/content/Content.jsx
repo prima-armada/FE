@@ -1,6 +1,6 @@
 import React, { useState,useRef } from 'react';
 import '../../../assets/css/project.css';
-import Logos from '../../../assets/image/imgregis/par.PNG';
+import Logos from '../../../assets/image/imgregis/logo-prima.png';
 import { InputGroup, InputRightElement,Input} from "@chakra-ui/react";
 import { ViewOffIcon, ViewIcon } from "@chakra-ui/icons";
 import axios from "axios";
@@ -231,22 +231,3 @@ const handleSubmit = async (e)  => {
   export default ContentRegis;
 
 
-  // function cariangka(params) {
-  //   let prom = new Promise((resolve,reject)=>{
-  //    setTimeout(()=>{
-  //     for (let index = 0; index <= params; index++) {
-  //       if (index <= 5){
-  //       resolve("ini indeks")
-  //       }else{
-  //         reject("time out atau tidak di temukan") 
-  //       }
-   
-  //     }
-  //    },10000)
-  //   })
-  //   prom.then((result) => {
-  //   console.log(result)
-  // }).catch((error) => {
-  //   console.log(error)
-  // })
-  // }

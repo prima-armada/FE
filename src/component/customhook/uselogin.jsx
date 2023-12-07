@@ -44,7 +44,7 @@ export const UseLogin=()=>{
       }).catch(error=>{
         
         if(error){
-          console.log("ini error",error.response.status)
+          // console.log("ini error",error.response.status)
             toast.error( error.response.data.data, {
                 position: "top-right",
                 autoClose:3000,
@@ -58,19 +58,7 @@ export const UseLogin=()=>{
              })
     
         }
-        if (error.response.status = 401){
-          toast.error( "Harap Login Terlebih Dahulu", {
-            position: "top-right",
-            autoClose:3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",         
-                    
-         })
-        }
+        
         navigate('/');
     }
   );

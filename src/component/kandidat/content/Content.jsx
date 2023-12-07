@@ -110,9 +110,6 @@ const handleSubmit = (event) => {
               navigate('/dashboard');
           
           }, 4000);
-  
-  
-  
      
       })
       .catch((error) => {
